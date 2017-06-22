@@ -5,7 +5,7 @@ gem 'puma'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'redis-rails'
 gem 'redis-namespace'
 gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
@@ -28,6 +28,8 @@ group :development do
   gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
+  gem 'sqlite3'
+  
 end
 
 # START:vanity

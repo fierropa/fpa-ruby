@@ -87,9 +87,24 @@ namespace :deploy do
       end
     end
   end
-#
+  
+  desc "Syncs the database.yml file from the local machine to the remote machine"
+  task :sync_yaml do
+    puts "\n\n=== Syncing database yaml to the production server! ===\n\n"
+    unless File.exist?("config/database.yml")
+      puts "There is no config/database.yml.\n "
+      exit
+    end
+    unless File.exist?("config/secrets.yml")
+      puts "There is no config/secrets.yml.\n "
+      exit
+    end
+    system "rsync -vr --exclude='.DS_Store' config/database.yml deploy@#{fetch(:application)}:#{shared_path}/config/"
+    system "rsync -vr --exclude='.DS_Store' config/secrets.yml deploy@#{fetch(:application)}:#{shared_path}/config/"
+  end
+
 #   # Tasks that run after every deployment (cap deploy)
-#
+
 #   desc "Initializes a bunch of tasks in order after the last deployment process."
 #   task :restart do
 #     puts "\n\n=== Running Custom Processes! ===\n\n"
