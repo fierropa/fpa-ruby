@@ -19,3 +19,42 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+
+.DS_Store
+config/database.yml
+config/databasedotcom.yml
+config/config.yml
+config/secrets.yml
+db/*.sqlite3
+log/*
+tmp/*
+.idea
+.idea/*
+public/assets/*
+.gitignore.bundle\n
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+public/capybara.htm
+.rspec
+.rvmrc
+/.bundle
+/vendor/bundle
+/public/system/*
+/coverage/
+/spec/tmp/*
+public/spree/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.powrc
+
+
+# Environment files that may contain sensitive data
+.env
+.powenv
+
+
+logfile
