@@ -1,0 +1,97 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.curved-dashed-border {
+  border: 3px dashed #aaa;
+//  margin-top: 10px;
+  min-height: 100px;
+}
+
+.dropzone {
+  background: #f4f4f4 !important;
+  border: none !important;
+}
+
+.dropzone, .dropzone * {
+  box-sizing: border-box; }
+
+.dropzone {
+  position: relative; 
+
+  .dz-preview {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    margin: 0.5em;
+    
+    &.dz-error {
+      .dz-error-message, .dz-error-mark {
+        display: block;
+      }
+    }
+    &.dz-success {
+      .dz-success-mark {
+        display: block;
+      }
+    }
+    
+    .dz-error-message {
+      color: red;
+      display: none;
+    }
+    .dz-error-mark, .dz-success-mark {
+      position: absolute;
+      display: none;
+      left: 30px;
+      top: 30px;
+      width: 54px;
+      height: 58px;
+      left: 50%;
+      margin-left: -27px;
+    }
+    .dz-progress {
+      display: block;
+      height: 15px;
+      border: 1px solid #aaa;
+      
+      .dz-upload {
+        display: block;
+        height: 100%;
+        width: 0;
+        background: green;
+      }
+    }
+  }
+}
+
+
+section {
+  .absolute-centered-image {
+    background-color: gainsboro;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    
+    span {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+
+.xy-centered {
+  display: inline-block;
+  vertical-align: middle;
+}

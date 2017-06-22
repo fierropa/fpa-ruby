@@ -1,0 +1,35 @@
+<!-- app/views/comparisons/_form.html.erb -->
+<%= form_for @comparison, html: { class: 'dropzone-form', multipart: true } do |f| %>
+  
+  <fieldset class="dropzone" style="margin-top:3em;padding:2em;">
+    <div class="form-group">
+      <%= f.fields_for :documents do |document_fields| %>
+        <%= f.label :document, "PDF Document #{document_fields.index+1}", class: 'col-form-label' %>
+        <div class="curved-dashed-border form-group text-center">
+          <br>
+          <%= document_fields.file_field :file %>
+          <div class="dz-default dz-message">
+            <span><small id="description-help" class="form-text text-muted">Or dropping file here works also.</small></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+    
+    <div class="form-group">
+      <%= f.label :description, class: 'col-form-label' %>
+      <div class="stacked">
+        <%= f.text_area :description, class: 'form-control text-field' %>
+      </div>
+      <small id="description-help" class="form-text text-muted">This is optional.</small>
+    </div>
+
+    <div class="form-group">
+      <div class="actions">
+        <%= f.submit nil, class: 'btn btn-primary' %>
+        <%= link_to 'Cancel', comparisons_path, class: 'btn btn-mini' %>
+      </div>
+    </div>
+  </fieldset>
+ 
+<% end %>
