@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.0'
-gem 'puma'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
