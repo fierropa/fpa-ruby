@@ -25,6 +25,7 @@ group :development do
   
   gem 'letter_opener'
   gem 'listen'
+  gem 'puma'
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'sqlite3'

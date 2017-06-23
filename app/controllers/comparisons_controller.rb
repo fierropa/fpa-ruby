@@ -34,7 +34,7 @@ class ComparisonsController < ApplicationController
   # PATCH/PUT /comparisons/1
   # PATCH/PUT /comparisons/1.json
   def update
-    if @comparison.update(comparison_params)
+    if @comparison.update(comparison_params) && @comparison.run
       render :show, status: :ok, location: @comparison
     else
       render json: @comparison.errors, status: :unprocessable_entity
@@ -55,6 +55,6 @@ class ComparisonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comparison_params
-      params.require(:comparison).permit(:description, documents_attributes: [:file])
+      params.require(:comparison).permit(:description, documents_attributes: [:file, :id])
     end
 end
