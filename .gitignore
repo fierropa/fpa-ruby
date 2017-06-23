@@ -60,3 +60,6 @@ pickle-email-*.html
 
 
 logfile
+
+# Errant fenerated diff files
+comparison_output.png

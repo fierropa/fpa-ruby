@@ -5,15 +5,28 @@ class Comparison < ApplicationRecord
   
   
   def run
-    puts "\npdf1 #{self.documents.first.file.url}"
-    puts "pdf2 #{self.documents.last.file.url} \n"
-    `source ~/.virtualenvs/fpa/bin/activate`
-    `cd #{Rails.root.join('vendor', 'utils', 'pdf-diff')}`
-    dir = `pwd`
-    raise dir.inspect
-    @exit_status_msg = `vendor/utils/pdf-diff resume_pdf.pdf resume_pdf_updated.pdf > comparison_output.png`
-    return false if $?.exitstatus > 0
+    raise self.documents.size unless self.documents.size == 2
+    puts "\n\npdf1 #{self.documents.first.file.path}"
+    puts "pdf2 #{self.documents.last.file.path} \n\n"
+    
+    
+    system 'source ~/.virtualenvs/fpa/bin/activate'
+    if $?.exitstatus > 0
+      raise "I failed to activate python env. #{$?.exitstatus}"
+    end
+    
+    
+    comp_img_path = Rails.root.join('public', 'uploads', "#{id}", 'comparison_output.png')
+    
+    system "cd vendor/utils/pdf-diff; pdf-diff #{self.documents.first.file.path} #{self.documents.last.file.path} > #{comp_img_path}"
+    if $?.exitstatus > 0
+      @exit_status_msg = "I failed to switch directories, I am very sorry :'( #{$?.exitstatus}"
+      raise @exit_status_msg
+      return false 
+    end
+
     true
   end
   
 end
+
