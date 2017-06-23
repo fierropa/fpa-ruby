@@ -11,7 +11,6 @@ body {
 
 .curved-dashed-border {
   border: 3px dashed #aaa;
-//  margin-top: 10px;
   min-height: 100px;
 }
 
@@ -87,6 +86,23 @@ section {
       vertical-align: middle;
     }
   }
+  
+  
+  .centered-image {
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  
+  h1 {
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+  }
+  
 }
 
 

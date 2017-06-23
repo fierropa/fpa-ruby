@@ -35,7 +35,7 @@ class ComparisonsController < ApplicationController
   # PATCH/PUT /comparisons/1.json
   def update
     if @comparison.update(comparison_params) && @comparison.run
-      render :show, status: :ok, location: @comparison
+      redirect_to @comparison
     else
       render json: @comparison.errors, status: :unprocessable_entity
     end

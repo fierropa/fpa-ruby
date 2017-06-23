@@ -1,7 +1,8 @@
 <section>
-  <div class="absolute-centered-image">
+  <h1 id="side-by-side-comparison" class="text-center">Side By Side Comparison</h1>
+  <div class="centered-image">
     <span></span>
-    <%= link_to image_tag("comparison_output.png", title: "Comparison results.", class: "xy-centered"), new_comparison_url %>
+    <%= link_to image_tag(@comparison.result_image_url, title: "Comparison results.", class: "xy-centered"), new_comparison_url %>
   </div>
   <div class="service-links"></div>
 </section>
