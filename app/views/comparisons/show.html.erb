@@ -1,8 +1,42 @@
-<section>
-  <h1 id="side-by-side-comparison" class="text-center">Side By Side Comparison</h1>
-  <div class="centered-image">
-    <span></span>
-    <%= link_to image_tag(@comparison.result_image_url, title: "Comparison results.", class: "xy-centered"), new_comparison_url %>
+<div class="w3-sidebar w3-bar-block" style="width:25%"> 
+  <%= link_to "Another Comparison", new_comparison_url, class: 'w3-bar-item w3-button' %>
+</div>
+
+
+
+
+
+<div id="wrapper">
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <%= link_to "Fierro Public Affairs", root_url, class: 'w3-bar-item w3-button' %>
+      </li>
+      <li>
+        <%= link_to "Another Comparison", new_comparison_url, class: 'w3-bar-item w3-button' %>
+      </li>
+    </ul>
   </div>
-  <div class="service-links"></div>
-</section>
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 id="side-by-side-comparison" class="text-center">Side By Side Comparison</h1>
+            <div class="centered-image">
+              <span></span>
+              <%= image_tag(@comparison.result_image_url, title: "Comparison results.", class: "xy-centered", skip_pipeline: true) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+      
+    </section>
+  </div>
+</div><!-- /#page-content-wrapper -->
+

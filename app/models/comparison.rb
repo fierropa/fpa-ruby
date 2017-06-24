@@ -18,12 +18,15 @@ class Comparison < ApplicationRecord
   
   
   def run
-    raise self.documents.size unless self.documents.size == 2
     puts "\n\npdf1 #{self.documents.first.file.path}"
     puts "pdf2 #{self.documents.last.file.path} \n\n"
     
+    unless self.documents.size == 2
+      @exit_status_msg = "The must be 2 files to compare, no more, mo less. Received #{self.documents.size}"
+      return false
+    end
     
-    system 'source ~/.virtualenvs/fpa/bin/activate'
+    system "source #{virtualenv_path}"
     if $?.exitstatus > 0
       raise "I failed to activate python env. #{$?.exitstatus}"
     end
@@ -44,6 +47,14 @@ class Comparison < ApplicationRecord
 
     true
   end
+  
+  
+  private
+  
+    def virtualenv_path
+      return '~/.virtualenvs/fpa/bin/activate' if Rails.env == 'development'
+      '~/fpa/fpaenv/bin/activate'
+    end
   
 end
 
