@@ -26,9 +26,9 @@ class Comparison < ApplicationRecord
       return false
     end
     
-    system "source #{virtualenv_path}"
+    source_virtualenv_path
     if $?.exitstatus > 0
-      raise "I failed to activate python env. #{$?.exitstatus}"
+      raise "I failed to activate python env. #{$?.exitstatus} \n virtualenv_path: #{virtualenv_path}"
     end
     
     system "mkdir #{documents_dir}"
@@ -51,9 +51,33 @@ class Comparison < ApplicationRecord
   
   private
   
+    def source_virtualenv_path
+      return (system "source ~/.virtualenvs/fpa/bin/activate") if Rails.env == 'development'
+      source_env_from('~/fpa/fpaenv/bin/activate')
+    end
+  
     def virtualenv_path
       return '~/.virtualenvs/fpa/bin/activate' if Rails.env == 'development'
       '~/fpa/fpaenv/bin/activate'
+    end
+    
+    # Read in the bash environment, after an optional command.
+    #   Returns Array of key/value pairs.
+    def bash_env(cmd=nil)
+      env = `#{cmd + ';' if cmd} printenv`
+      env.split(/\n/).map {|l| l.split(/=/)}
+    end
+
+    # Source a given file, and compare environment before and after.
+    #   Returns Hash of any keys that have changed.
+    def bash_source(file)
+      Hash[ bash_env(". #{File.realpath file}") - bash_env() ]
+    end
+
+    # Find variables changed as a result of sourcing the given file, 
+    #   and update in ENV.
+    def source_env_from(file)
+      bash_source(file).each {|k,v| ENV[k] = v }
     end
   
 end
