@@ -5,7 +5,8 @@ class Comparison < ApplicationRecord
   
   
   def documents_dir
-    Rails.root.join('public', 'images', 'comparisons', "#{id}")
+    return Rails.root.join('public', 'images', 'comparisons', "#{id}") if Rails.env == 'development'
+    File.join('/var', 'www', 'fpa', 'shared', 'public', 'images', 'comparisons', "#{id}")
   end
   
   def result_image_path
@@ -18,13 +19,14 @@ class Comparison < ApplicationRecord
   
   
   def run
-    puts "\n\npdf1 #{self.documents.first.file.path}"
-    puts "pdf2 #{self.documents.last.file.path} \n\n"
     
     unless self.documents.size == 2
       @exit_status_msg = "The must be 2 files to compare, no more, mo less. Received #{self.documents.size}"
       return false
     end
+    
+    puts "\n\npdf1 #{self.documents.first.file.path}"
+    puts "pdf2 #{self.documents.last.file.path} \n\n"
     
     source_virtualenv_path
     if $?.exitstatus > 0
@@ -53,7 +55,7 @@ class Comparison < ApplicationRecord
   
     def source_virtualenv_path
       return (system "source ~/.virtualenvs/fpa/bin/activate") if Rails.env == 'development'
-      source_env_from('~/fpa/fpaenv/bin/activate')
+      source_env_from('/home/deploy/fpa/fpaenv/bin/activate')
     end
   
     def virtualenv_path
