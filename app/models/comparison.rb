@@ -31,6 +31,7 @@ class Comparison < ApplicationRecord
     source_virtualenv_path
     if $?.exitstatus > 0
       raise "I failed to activate python env. #{$?.exitstatus} \n virtualenv_path: #{virtualenv_path}"
+      return false 
     end
     
     system "mkdir #{documents_dir}"
