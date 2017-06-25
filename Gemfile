@@ -43,6 +43,7 @@ gem 'formtastic'
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem "font-awesome-rails"
 gem 'sass-rails'
 gem 'coffee-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
+  background-color: gainsboro;
 }
 
 
@@ -71,47 +72,33 @@ body {
   }
 }
 
-.nav .open > a, 
-.nav .open > a:hover, 
-.nav .open > a:focus {background-color: transparent;}
 
-
-section {
-  .absolute-centered-image {
-    background-color: gainsboro;
-    height: 100%;
-    position: absolute;
-    text-align: center;
-    width: 100%;
+.absolute-centered-image {
+  display: block;
+  text-align: center;
     
-    span {
-      display: inline-block;
-      height: 100%;
-      vertical-align: middle;
-    }
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
+}
   
   
-  .centered-image {
-    img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 100%;
-      max-height: 100%;
-    }
+.centered-image {
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
-  
-  h1 {
-    margin-top: 1.5em;
-    margin-bottom: 2em;
-  }
-  
 }
 
-
-
-.xy-centered {
-  display: inline-block;
-  vertical-align: middle;
+h1 {
+  margin-top: 1.5em;
+  margin-bottom: 2em;
 }
+  
