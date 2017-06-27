@@ -4,7 +4,7 @@ class Document < ApplicationRecord
   # It’s best to modify the path only if the local filesystem prefix is different than the ‘public’ folder in the root of your Rails application directory.
   has_attached_file :file, path: ":rails_root/public/uploads:url",
                            url: "/:comparison_id/:filename"
-  validates_attachment :file, presence: true, content_type: { content_type: "application/pdf" }, size: { in: 0..999.kilobytes }
+  validates_attachment :file, presence: true, content_type: { content_type: "application/pdf" }, size: { in: 0..5.megabytes }
   
   
   Paperclip.interpolates :comparison_id do |attachment, style|
