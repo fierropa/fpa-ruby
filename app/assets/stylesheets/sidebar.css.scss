@@ -30,6 +30,10 @@
   border-color: #2c2c2c;
   white-space: nowrap;
  }
+ 
+ #sidebar .list-group-item .strongbox {
+   font-family: "Krona One";
+  }
 
  /* highlight active menu */
 #sidebar .list-group-item:not(.collapsed) {
