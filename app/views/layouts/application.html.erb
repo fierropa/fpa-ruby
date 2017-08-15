@@ -17,6 +17,12 @@
            
         <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
           <div class="list-group border-0 card text-center text-md-left">
+            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+              <span class="hidden-sm-down presidio">Presidio Strategic Communications</span>
+            </a>
+            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+              <%= current_user_email %>
+            </a>
             <a href="https://presidiosc.slack.com" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <i class="fa fa-slack" aria-hidden="true"></i><span class="hidden-sm-down">Slack</span>
             </a>
@@ -36,8 +42,15 @@
               <!-- <a href="#" class="list-group-item" data-parent="#menu3">3.3</a> -->
             </div>
             
-            <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
-              <i class="fa fa-dashboard"></i> <span class="hidden-sm-down">Dashboard</span>
+            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+              <i class="fa fa-film"></i><span class="hidden-sm-down">Media</span>
+            </a>
+            
+            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-calendar"></i> <span class="hidden-sm-down">Calendar</span></a>
+            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Email</span></a>
+            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="hidden-sm-down">Reports</span></a>
+            <a href="#menu1" class="list-group-item d-inline-block collapsed" data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
+              <i class="fa fa-gear"></i> <span class="hidden-sm-down">Settings</span>
             </a>
             <div class="collapse" id="menu1">
               <a href="#menu1sub1" class="list-group-item" data-toggle="collapse" aria-expanded="false">Subitem 1 </a>
@@ -59,15 +72,6 @@
                 <a href="#" class="list-group-item" data-parent="#menu1">Subitem 2</a>
                 <a href="#" class="list-group-item" data-parent="#menu1">Subitem 3</a>
             </div>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <i class="fa fa-film"></i><span class="hidden-sm-down">Media</span>
-            </a>
-            <!-- <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-clock-o"></i> <span class="hidden-sm-down">Link</span></a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-th"></i> <span class="hidden-sm-down">Link</span></a> -->
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-gear"></i> <span class="hidden-sm-down">Settings</span></a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-calendar"></i> <span class="hidden-sm-down">Calendar</span></a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Email</span></a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="hidden-sm-down">Reports</span></a>
           </div>
         </div>
         <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
