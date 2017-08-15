@@ -1,0 +1,2 @@
+# asset 'bootstrap#v4.0.0-beta'
+# installing through Bower at this moment (08-15-2017) still installs version 3 so I'm option to stray from the book and use the ruby gem for now

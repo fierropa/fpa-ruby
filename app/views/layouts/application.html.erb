@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Krona+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Hind+Vadodara|Krona+One" rel="stylesheet">
     <%= favicon_link_tag %>
   </head>
 
@@ -17,18 +17,12 @@
            
         <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
           <div class="list-group border-0 card text-center text-md-left">
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <span class="hidden-sm-down presidio">Presidio Strategic Communications</span>
-            </a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <%= current_user_email %>
-            </a>
+            <%= sidebar_link_to content_tag(:span,  'Presidio Strategic Communications', class: 'hidden-sm-down presidio'), root_url %>
+            <%= sidebar_link_to current_user_email, root_url %>
             <a href="https://presidiosc.slack.com" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
               <i class="fa fa-slack" aria-hidden="true"></i><span class="hidden-sm-down">Slack</span>
             </a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <i class="fa fa-cube"></i> <span class="hidden-sm-down strongbox">Strongbox</span>
-            </a>
+           
             <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
               <i class="fa fa-book"></i> <span class="hidden-sm-down">Documents</span>
             </a>
@@ -72,6 +66,9 @@
                 <a href="#" class="list-group-item" data-parent="#menu1">Subitem 2</a>
                 <a href="#" class="list-group-item" data-parent="#menu1">Subitem 3</a>
             </div>
+            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
+              <i class="fa fa-cube"></i> <span class="hidden-sm-down strongbox">Strongbox</span>
+            </a>
           </div>
         </div>
         <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">

@@ -1,0 +1,8 @@
+{
+  "name": "dsl-generated-dependencies",
+  "dependencies": {
+    "bootstrap#v4.0.0-beta": "latest"
+  },
+  "resolutions": {
+  }
+}

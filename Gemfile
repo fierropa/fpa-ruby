@@ -5,6 +5,7 @@ gem 'rails', '~> 5.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'bower-rails'
 gem 'redis-rails'
 gem 'redis-namespace'
 gem 'devise', git: 'https://github.com/gogovan/devise.git', branch: 'rails-5.1'
@@ -42,7 +43,7 @@ gem 'formtastic'
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap', '~> 4.0.0.beta'
 gem "font-awesome-rails"
 gem 'sass-rails'
 gem 'coffee-rails'
