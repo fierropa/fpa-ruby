@@ -17,32 +17,29 @@
            
         <div class="col-md-3 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
           <div class="list-group border-0 card text-center text-md-left">
-            <%= sidebar_link_to content_tag(:span,  'Presidio Strategic Communications', class: 'hidden-sm-down presidio'), root_url %>
+            <%= sidebar_link_to company_name, root_url %>
             <%= sidebar_link_to current_user_email, root_url %>
-            <a href="https://presidiosc.slack.com" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <i class="fa fa-slack" aria-hidden="true"></i><span class="hidden-sm-down">Slack</span>
-            </a>
-           
+            <%= sidebar_link_to sidebar_slack_icon, "https://presidiosc.slack.com" %>
+            
+            <!-- Documents Menu -->
             <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" data-parent="#sidebar" aria-expanded="false">
-              <i class="fa fa-book"></i> <span class="hidden-sm-down">Documents</span>
+              <i class="fa fa-book"></i>
+              <span class="hidden-sm-down">Documents</span>
             </a>
             <div class="collapse" id="menu3">
-              <!-- <a href="#" class="list-group-item" data-parent="#menu3">3.1</a> -->
               <a href="#menu3sub2" class="list-group-item" data-toggle="collapse" aria-expanded="false">Utilities</a>
               <div class="collapse" id="menu3sub2">
                 <%= link_to "PDF Diff Tool", new_comparison_url, class: 'list-group-item', data: { parent: '#menu3sub2' } %>
-                <!-- <a href="#" class="list-group-item" data-parent="#menu3sub2">3.2 c</a> -->
               </div>
-              <!-- <a href="#" class="list-group-item" data-parent="#menu3">3.3</a> -->
             </div>
+            <!-- End Documents Menu -->
             
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <i class="fa fa-film"></i><span class="hidden-sm-down">Media</span>
-            </a>
+            <%= sidebar_link_to sidebar_media_icon, '#' %>
+            <%= sidebar_link_to sidebar_calendar_icon, '#' %>
+            <%= sidebar_link_to sidebar_email_icon, '#' %>
+            <%= sidebar_link_to sidebar_reports_icon, '#' %>
             
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-calendar"></i> <span class="hidden-sm-down">Calendar</span></a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-envelope"></i> <span class="hidden-sm-down">Email</span></a>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fa fa-bar-chart-o"></i> <span class="hidden-sm-down">Reports</span></a>
+            <!-- Settings Menu -->
             <a href="#menu1" class="list-group-item d-inline-block collapsed" data-parent="#sidebar" data-toggle="collapse" aria-expanded="false">
               <i class="fa fa-gear"></i> <span class="hidden-sm-down">Settings</span>
             </a>
@@ -66,13 +63,28 @@
                 <a href="#" class="list-group-item" data-parent="#menu1">Subitem 2</a>
                 <a href="#" class="list-group-item" data-parent="#menu1">Subitem 3</a>
             </div>
-            <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar">
-              <i class="fa fa-cube"></i> <span class="hidden-sm-down strongbox">Strongbox</span>
-            </a>
+            <!-- End Settings Menu -->
+            
+            <%= sidebar_link_to sidebar_strongbox_icon, '#' %>
+            <%= sidebar_link_to_logout %>
           </div>
         </div>
-        <main class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
+        
+        <main id="main" class="col-md-9 float-left col px-5 pl-md-2 pt-2 main">
           <a href="#" data-target="#sidebar" data-toggle="collapse"><i class="fa fa-navicon fa-2x py-2 p-1"></i></a>
+          <% if notice.present? %>
+            <aside class="alert alert-info">
+              <%= notice %>
+            </aside>
+          <% end %>
+          
+          <% if alert.present? %>
+            <aside class="alert alert-danger">
+              <%= alert %>
+            </aside>
+          <% end %>
+          
+          
           <%= yield %>
         </main>
       </div>        
