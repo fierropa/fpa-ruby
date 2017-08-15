@@ -2,7 +2,7 @@
 lock "3.8.2"
 
 set :application, "fpa"
-set :repo_url, "git@github.com:fierropa/fpa-ruby.git"
+set :repo_url, "git@github.com:fierropa/presidio.git"
 set :passenger_restart_with_touch, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
