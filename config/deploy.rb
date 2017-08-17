@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock "3.8.2"
 
-set :application, "fpa"
+set :application, "presidio"
 set :repo_url, "git@github.com:fierropa/presidio.git"
 set :passenger_restart_with_touch, true
 # Default branch is :master
