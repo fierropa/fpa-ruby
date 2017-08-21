@@ -1,0 +1,14 @@
+<nav aria-label="Search Results pages">
+  <ul class="pagination">
+    <li class="page-item previous <%= page == 0 ? 'disabled' : '' %>">
+      <% if page > 0 %>
+        <%= link_to "&larr; Previous".html_safe, customers_path(keywords: keywords, page: page-1), class: "page-link" %>
+      <% else %>
+        <span class="page-link">&larr; Previous</span>
+      <% end %>
+    </li>
+    <li class="page-item next">
+      <%= link_to "&rarr; Next".html_safe, customers_path(keywords: keywords, page: page+1), class: "page-link" %>
+    </li>
+  </ul>
+</nav>
